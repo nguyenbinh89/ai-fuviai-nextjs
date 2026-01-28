@@ -1,6 +1,6 @@
 // File: app/layout.tsx
-// Changes: Increased logo size significantly for better visual prominence
-// Commit: "style: increase logo size for better visual balance"
+// Changes: Logo ICON ONLY (no text) - Clean, minimalist design
+// Commit: "style: use icon-only logo for clean minimalist look"
 
 import type { Metadata } from "next";
 import { Sora, DM_Sans } from "next/font/google";
@@ -46,60 +46,31 @@ export default function RootLayout({
           <div style={{
             maxWidth: '1280px',
             margin: '0 auto',
-            padding: '1.25rem 2rem',
+            padding: '1rem 2rem',
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
           }}>
-            {/* Logo - MUCH LARGER for better prominence */}
+            {/* Logo - ICON ONLY - LARGE & CLEAN */}
             <Link href="/" style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '16px',
               textDecoration: 'none',
-            }}>
-              {/* Logo Icon - Increased to 56px */}
+              transition: 'transform 0.2s ease',
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+            >
               <Image 
                 src="/logo-icon.png" 
                 alt="Future Vision AI" 
-                width={56}
-                height={56}
+                width={64}
+                height={64}
                 style={{
                   objectFit: 'contain',
                 }}
                 priority
               />
-              
-              {/* Logo Text - Much Larger */}
-              <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '4px',
-              }}>
-                <span style={{
-                  fontFamily: 'var(--font-sora)',
-                  fontSize: '32px',
-                  fontWeight: 800,
-                  background: 'linear-gradient(135deg, #3b7dff 0%, #00d4ff 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                  letterSpacing: '1.5px',
-                  lineHeight: 1,
-                }}>
-                  FVA
-                </span>
-                <span style={{
-                  fontFamily: 'var(--font-dm-sans)',
-                  fontSize: '12px',
-                  fontWeight: 600,
-                  color: '#64748b',
-                  letterSpacing: '1px',
-                  lineHeight: 1,
-                }}>
-                  FUTURE VISION AI
-                </span>
-              </div>
             </Link>
 
             {/* Desktop Menu */}
@@ -196,7 +167,7 @@ export default function RootLayout({
               gap: '3rem',
               marginBottom: '3rem',
             }}>
-              {/* Column 1: About - Larger Logo */}
+              {/* Column 1: About - Icon + Text */}
               <div>
                 <div style={{
                   display: 'flex',
@@ -207,8 +178,8 @@ export default function RootLayout({
                   <Image 
                     src="/logo-icon.png" 
                     alt="Future Vision AI" 
-                    width={48}
-                    height={48}
+                    width={56}
+                    height={56}
                     style={{
                       objectFit: 'contain',
                       filter: 'brightness(1.2)',
