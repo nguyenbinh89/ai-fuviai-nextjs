@@ -1,6 +1,6 @@
 // File: app/layout.tsx
-// Changes: Updated logo to use image file, updated colors to match logo
-// Commit: "feat: update logo and brand colors to match new FVA logo"
+// Changes: Removed styled-jsx, using only inline styles and globals.css
+// Commit: "fix: remove styled-jsx from layout to fix build error"
 
 import type { Metadata } from "next";
 import { Sora, DM_Sans } from "next/font/google";
@@ -68,7 +68,7 @@ export default function RootLayout({
                   objectFit: 'contain',
                 }}
               />
-              {/* Logo Text - Only show on desktop */}
+              {/* Logo Text */}
               <div style={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -99,52 +99,51 @@ export default function RootLayout({
             </Link>
 
             {/* Desktop Menu */}
-            <div style={{
-              display: 'flex',
-              gap: '2rem',
-              alignItems: 'center',
-            }} className="desktop-menu">
-              <Link href="/" style={{
+            <div 
+              className="desktop-menu"
+              style={{
+                display: 'flex',
+                gap: '2rem',
+                alignItems: 'center',
+              }}
+            >
+              <Link href="/" className="nav-link" style={{
                 fontFamily: 'var(--font-dm-sans)',
                 fontSize: '15px',
                 fontWeight: 500,
                 color: '#1e293b',
                 textDecoration: 'none',
-                transition: 'color 0.2s',
               }}>
                 Trang chủ
               </Link>
-              <Link href="/about" style={{
+              <Link href="/about" className="nav-link" style={{
                 fontFamily: 'var(--font-dm-sans)',
                 fontSize: '15px',
                 fontWeight: 500,
                 color: '#1e293b',
                 textDecoration: 'none',
-                transition: 'color 0.2s',
               }}>
                 Giới thiệu
               </Link>
-              <Link href="/products" style={{
+              <Link href="/products" className="nav-link" style={{
                 fontFamily: 'var(--font-dm-sans)',
                 fontSize: '15px',
                 fontWeight: 500,
                 color: '#1e293b',
                 textDecoration: 'none',
-                transition: 'color 0.2s',
               }}>
                 Sản phẩm
               </Link>
-              <Link href="/blog" style={{
+              <Link href="/blog" className="nav-link" style={{
                 fontFamily: 'var(--font-dm-sans)',
                 fontSize: '15px',
                 fontWeight: 500,
                 color: '#1e293b',
                 textDecoration: 'none',
-                transition: 'color 0.2s',
               }}>
                 Tin tức
               </Link>
-              <Link href="/contact" style={{
+              <Link href="/contact" className="cta-button" style={{
                 fontFamily: 'var(--font-dm-sans)',
                 fontSize: '15px',
                 fontWeight: 500,
@@ -153,21 +152,20 @@ export default function RootLayout({
                 padding: '10px 24px',
                 borderRadius: '8px',
                 textDecoration: 'none',
-                transition: 'transform 0.2s, box-shadow 0.2s',
                 boxShadow: '0 4px 12px rgba(59, 125, 255, 0.2)',
               }}>
                 Liên hệ
               </Link>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button - Hidden by default, shown on mobile via CSS */}
             <button className="mobile-menu-btn" style={{
-              display: 'none',
               background: 'none',
               border: 'none',
               fontSize: '24px',
               cursor: 'pointer',
               color: '#1e293b',
+              display: 'none',
             }}>
               ☰
             </button>
@@ -260,48 +258,43 @@ export default function RootLayout({
                   flexDirection: 'column',
                   gap: '0.75rem',
                 }}>
-                  <Link href="/" style={{
+                  <Link href="/" className="footer-link" style={{
                     fontFamily: 'var(--font-dm-sans)',
                     fontSize: '14px',
                     color: '#cbd5e1',
                     textDecoration: 'none',
-                    transition: 'color 0.2s',
                   }}>
                     Trang Chủ
                   </Link>
-                  <Link href="/about" style={{
+                  <Link href="/about" className="footer-link" style={{
                     fontFamily: 'var(--font-dm-sans)',
                     fontSize: '14px',
                     color: '#cbd5e1',
                     textDecoration: 'none',
-                    transition: 'color 0.2s',
                   }}>
                     Giới Thiệu
                   </Link>
-                  <Link href="/products" style={{
+                  <Link href="/products" className="footer-link" style={{
                     fontFamily: 'var(--font-dm-sans)',
                     fontSize: '14px',
                     color: '#cbd5e1',
                     textDecoration: 'none',
-                    transition: 'color 0.2s',
                   }}>
                     Sản Phẩm
                   </Link>
-                  <Link href="/blog" style={{
+                  <Link href="/blog" className="footer-link" style={{
                     fontFamily: 'var(--font-dm-sans)',
                     fontSize: '14px',
                     color: '#cbd5e1',
                     textDecoration: 'none',
-                    transition: 'color 0.2s',
                   }}>
                     Tin Tức
                   </Link>
-                  <Link href="/contact" style={{
+                  <Link href="/contact" className="footer-link" style={{
                     fontFamily: 'var(--font-dm-sans)',
                     fontSize: '14px',
                     color: '#cbd5e1',
                     textDecoration: 'none',
-                    transition: 'color 0.2s',
                   }}>
                     Liên Hệ
                   </Link>
@@ -324,48 +317,43 @@ export default function RootLayout({
                   flexDirection: 'column',
                   gap: '0.75rem',
                 }}>
-                  <Link href="/products#recruitment" style={{
+                  <Link href="/products#recruitment" className="footer-link" style={{
                     fontFamily: 'var(--font-dm-sans)',
                     fontSize: '14px',
                     color: '#cbd5e1',
                     textDecoration: 'none',
-                    transition: 'color 0.2s',
                   }}>
                     AI Automation Tuyển Dụng
                   </Link>
-                  <Link href="/products#seo" style={{
+                  <Link href="/products#seo" className="footer-link" style={{
                     fontFamily: 'var(--font-dm-sans)',
                     fontSize: '14px',
                     color: '#cbd5e1',
                     textDecoration: 'none',
-                    transition: 'color 0.2s',
                   }}>
                     Hệ Thống AI SEO
                   </Link>
-                  <Link href="/products#sale" style={{
+                  <Link href="/products#sale" className="footer-link" style={{
                     fontFamily: 'var(--font-dm-sans)',
                     fontSize: '14px',
                     color: '#cbd5e1',
                     textDecoration: 'none',
-                    transition: 'color 0.2s',
                   }}>
                     AI Automation Sale
                   </Link>
-                  <Link href="/products#assistant" style={{
+                  <Link href="/products#assistant" className="footer-link" style={{
                     fontFamily: 'var(--font-dm-sans)',
                     fontSize: '14px',
                     color: '#cbd5e1',
                     textDecoration: 'none',
-                    transition: 'color 0.2s',
                   }}>
                     Trợ Lý Cá Nhân AI
                   </Link>
-                  <Link href="/products#custom" style={{
+                  <Link href="/products#custom" className="footer-link" style={{
                     fontFamily: 'var(--font-dm-sans)',
                     fontSize: '14px',
                     color: '#cbd5e1',
                     textDecoration: 'none',
-                    transition: 'color 0.2s',
                   }}>
                     AI Automation Tùy Chỉnh
                   </Link>
@@ -395,30 +383,27 @@ export default function RootLayout({
                   }}>
                     📍 Thù Lỗ, Thư Lâm
                   </div>
-                  <a href="mailto:info@fuviai.com" style={{
+                  <a href="mailto:info@fuviai.com" className="footer-link" style={{
                     fontFamily: 'var(--font-dm-sans)',
                     fontSize: '14px',
                     color: '#cbd5e1',
                     textDecoration: 'none',
-                    transition: 'color 0.2s',
                   }}>
                     📧 info@fuviai.com
                   </a>
-                  <a href="tel:0889952123" style={{
+                  <a href="tel:0889952123" className="footer-link" style={{
                     fontFamily: 'var(--font-dm-sans)',
                     fontSize: '14px',
                     color: '#cbd5e1',
                     textDecoration: 'none',
-                    transition: 'color 0.2s',
                   }}>
                     📱 0889 952 123
                   </a>
-                  <a href="https://zalo.me/0889952123" target="_blank" rel="noopener noreferrer" style={{
+                  <a href="https://zalo.me/0889952123" target="_blank" rel="noopener noreferrer" className="footer-link" style={{
                     fontFamily: 'var(--font-dm-sans)',
                     fontSize: '14px',
                     color: '#cbd5e1',
                     textDecoration: 'none',
-                    transition: 'color 0.2s',
                   }}>
                     💬 Chat Zalo
                   </a>
@@ -450,30 +435,27 @@ export default function RootLayout({
                 display: 'flex',
                 gap: '1rem',
               }}>
-                <a href="https://facebook.com/fuviai" target="_blank" rel="noopener noreferrer" style={{
+                <a href="https://facebook.com/fuviai" target="_blank" rel="noopener noreferrer" className="footer-link" style={{
                   fontFamily: 'var(--font-dm-sans)',
                   fontSize: '14px',
                   color: '#94a3b8',
                   textDecoration: 'none',
-                  transition: 'color 0.2s',
                 }}>
                   Facebook
                 </a>
-                <a href="https://linkedin.com/company/fuviai" target="_blank" rel="noopener noreferrer" style={{
+                <a href="https://linkedin.com/company/fuviai" target="_blank" rel="noopener noreferrer" className="footer-link" style={{
                   fontFamily: 'var(--font-dm-sans)',
                   fontSize: '14px',
                   color: '#94a3b8',
                   textDecoration: 'none',
-                  transition: 'color 0.2s',
                 }}>
                   LinkedIn
                 </a>
-                <a href="https://youtube.com/@fuviai" target="_blank" rel="noopener noreferrer" style={{
+                <a href="https://youtube.com/@fuviai" target="_blank" rel="noopener noreferrer" className="footer-link" style={{
                   fontFamily: 'var(--font-dm-sans)',
                   fontSize: '14px',
                   color: '#94a3b8',
                   textDecoration: 'none',
-                  transition: 'color 0.2s',
                 }}>
                   YouTube
                 </a>
@@ -481,32 +463,6 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
-
-        <style jsx global>{`
-          .desktop-menu a:hover {
-            color: #3b7dff !important;
-          }
-
-          .desktop-menu a[href="/contact"]:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(59, 125, 255, 0.3);
-            color: white !important;
-          }
-
-          footer a:hover {
-            color: #00d4ff !important;
-          }
-
-          @media (max-width: 768px) {
-            .desktop-menu {
-              display: none !important;
-            }
-            
-            .mobile-menu-btn {
-              display: block !important;
-            }
-          }
-        `}</style>
       </body>
     </html>
   );
