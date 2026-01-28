@@ -1,5 +1,5 @@
 /* File: app/globals.css */
-/* Changes: Updated color scheme to match new FVA logo (blue #3b7dff + cyan #00d4ff) */
+/* Changes: Updated with hover effects and responsive styles (moved from styled-jsx) */
 
 * {
   box-sizing: border-box;
@@ -85,6 +85,44 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+/* Navigation Hover Effects */
+.nav-link {
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #3b7dff !important;
+}
+
+.cta-button {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 125, 255, 0.3) !important;
+}
+
+/* Footer Link Hover Effects */
+.footer-link {
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #00d4ff !important;
+}
+
+/* Responsive - Mobile Menu */
+@media (max-width: 768px) {
+  .desktop-menu {
+    display: none !important;
+  }
+  
+  .mobile-menu-btn {
+    display: block !important;
+  }
 }
 
 /* Selection color - matches logo */
