@@ -1,6 +1,6 @@
 // File: app/layout.tsx
-// Changes: Removed styled-jsx, using only inline styles and globals.css
-// Commit: "fix: remove styled-jsx from layout to fix build error"
+// Changes: Increased logo size significantly for better visual prominence
+// Commit: "style: increase logo size for better visual balance"
 
 import type { Metadata } from "next";
 import { Sora, DM_Sans } from "next/font/google";
@@ -46,52 +46,56 @@ export default function RootLayout({
           <div style={{
             maxWidth: '1280px',
             margin: '0 auto',
-            padding: '1rem 2rem',
+            padding: '1.25rem 2rem',
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
           }}>
-            {/* Logo - Icon + Text */}
+            {/* Logo - MUCH LARGER for better prominence */}
             <Link href="/" style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '12px',
+              gap: '16px',
               textDecoration: 'none',
             }}>
-              {/* Logo Icon */}
+              {/* Logo Icon - Increased to 56px */}
               <Image 
                 src="/logo-icon.png" 
                 alt="Future Vision AI" 
-                width={40} 
-                height={40}
+                width={56}
+                height={56}
                 style={{
                   objectFit: 'contain',
                 }}
+                priority
               />
-              {/* Logo Text */}
+              
+              {/* Logo Text - Much Larger */}
               <div style={{
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '2px',
+                gap: '4px',
               }}>
                 <span style={{
                   fontFamily: 'var(--font-sora)',
-                  fontSize: '20px',
-                  fontWeight: 700,
+                  fontSize: '32px',
+                  fontWeight: 800,
                   background: 'linear-gradient(135deg, #3b7dff 0%, #00d4ff 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
-                  letterSpacing: '1px',
+                  letterSpacing: '1.5px',
+                  lineHeight: 1,
                 }}>
                   FVA
                 </span>
                 <span style={{
                   fontFamily: 'var(--font-dm-sans)',
-                  fontSize: '10px',
-                  fontWeight: 500,
+                  fontSize: '12px',
+                  fontWeight: 600,
                   color: '#64748b',
-                  letterSpacing: '0.5px',
+                  letterSpacing: '1px',
+                  lineHeight: 1,
                 }}>
                   FUTURE VISION AI
                 </span>
@@ -146,10 +150,10 @@ export default function RootLayout({
               <Link href="/contact" className="cta-button" style={{
                 fontFamily: 'var(--font-dm-sans)',
                 fontSize: '15px',
-                fontWeight: 500,
+                fontWeight: 600,
                 background: 'linear-gradient(135deg, #3b7dff 0%, #00d4ff 100%)',
                 color: 'white',
-                padding: '10px 24px',
+                padding: '12px 28px',
                 borderRadius: '8px',
                 textDecoration: 'none',
                 boxShadow: '0 4px 12px rgba(59, 125, 255, 0.2)',
@@ -158,11 +162,11 @@ export default function RootLayout({
               </Link>
             </div>
 
-            {/* Mobile Menu Button - Hidden by default, shown on mobile via CSS */}
+            {/* Mobile Menu Button */}
             <button className="mobile-menu-btn" style={{
               background: 'none',
               border: 'none',
-              fontSize: '24px',
+              fontSize: '28px',
               cursor: 'pointer',
               color: '#1e293b',
               display: 'none',
@@ -192,19 +196,19 @@ export default function RootLayout({
               gap: '3rem',
               marginBottom: '3rem',
             }}>
-              {/* Column 1: About */}
+              {/* Column 1: About - Larger Logo */}
               <div>
                 <div style={{
                   display: 'flex',
                   alignItems: 'center',
                   gap: '12px',
-                  marginBottom: '1rem',
+                  marginBottom: '1.5rem',
                 }}>
                   <Image 
                     src="/logo-icon.png" 
                     alt="Future Vision AI" 
-                    width={40} 
-                    height={40}
+                    width={48}
+                    height={48}
                     style={{
                       objectFit: 'contain',
                       filter: 'brightness(1.2)',
@@ -213,20 +217,24 @@ export default function RootLayout({
                   <div>
                     <div style={{
                       fontFamily: 'var(--font-sora)',
-                      fontSize: '20px',
-                      fontWeight: 700,
+                      fontSize: '28px',
+                      fontWeight: 800,
                       background: 'linear-gradient(135deg, #3b7dff 0%, #00d4ff 100%)',
                       WebkitBackgroundClip: 'text',
                       WebkitTextFillColor: 'transparent',
                       backgroundClip: 'text',
+                      lineHeight: 1,
+                      marginBottom: '4px',
                     }}>
                       FVA
                     </div>
                     <div style={{
                       fontFamily: 'var(--font-dm-sans)',
-                      fontSize: '10px',
+                      fontSize: '11px',
+                      fontWeight: 600,
                       color: '#94a3b8',
-                      letterSpacing: '0.5px',
+                      letterSpacing: '0.8px',
+                      lineHeight: 1,
                     }}>
                       FUTURE VISION AI
                     </div>
