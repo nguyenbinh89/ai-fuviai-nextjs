@@ -73,11 +73,10 @@ export default function RootLayout({
                   <Image 
                     src="/logo-icon-64x64.png" 
                     alt="FVA Logo" 
-                    width={40} 
-                    height={40}
+                    width={250} 
+                    height={60}
                     style={{ objectFit: 'contain' }}
                   />
-                  <span className="footer-logo-text">Future Vision AI</span>
                 </div>
                 <p className="footer-description">
                   Giải pháp tự động hóa AI hàng đầu cho doanh nghiệp Việt Nam.
