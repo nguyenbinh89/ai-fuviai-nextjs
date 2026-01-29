@@ -1,6 +1,5 @@
 // File: app/layout.tsx
-// FINAL VERSION - 100% Server Component Compatible
-// No event handlers, no styled-jsx, pure CSS classes
+// EXTRA LARGE VERSION: Logo 72x72px, NO TEXT
 
 import type { Metadata } from 'next'
 import { Sora, DM_Sans } from 'next/font/google'
@@ -39,16 +38,15 @@ export default function RootLayout({
         {/* Navigation */}
         <nav className="main-nav">
           <div className="nav-container">
-            {/* Logo */}
+            {/* Logo - Extra Large, Icon Only */}
             <Link href="/" className="logo-link">
               <Image 
                 src="/logo-icon-64x64.png" 
-                alt="Future Vision AI Logo" 
-                width={40} 
-                height={40}
+                alt="Future Vision AI" 
+                width={72} 
+                height={72}
                 style={{ objectFit: 'contain' }}
               />
-              <span className="logo-text">FVA</span>
             </Link>
 
             {/* Desktop Navigation */}
@@ -75,8 +73,8 @@ export default function RootLayout({
                   <Image 
                     src="/logo-icon-64x64.png" 
                     alt="FVA Logo" 
-                    width={32} 
-                    height={32}
+                    width={40} 
+                    height={40}
                     style={{ objectFit: 'contain' }}
                   />
                   <span className="footer-logo-text">Future Vision AI</span>
