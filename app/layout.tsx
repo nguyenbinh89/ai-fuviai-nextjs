@@ -1,6 +1,6 @@
 // File: app/layout.tsx
-// Purpose: Root layout with new FVA logo and updated navigation
-// Updated: 29/01/2026 - Added logo files, updated color scheme
+// Purpose: Root layout with FVA logo - NO EVENT HANDLERS (Server Component compatible)
+// Updated: 29/01/2026 - Fixed: Removed hover effects to fix build error
 
 import type { Metadata } from 'next'
 import { Sora, DM_Sans } from 'next/font/google'
@@ -62,7 +62,7 @@ export default function RootLayout({
               textDecoration: 'none'
             }}>
               <Image 
-                src="/logo-icon.png" 
+                src="/logo-icon-64x64.png" 
                 alt="Future Vision AI Logo" 
                 width={40} 
                 height={40}
@@ -81,90 +81,29 @@ export default function RootLayout({
               </span>
             </Link>
 
-            {/* Desktop Navigation */}
+            {/* Desktop Navigation - CSS hover only */}
             <div style={{
               display: 'flex',
               gap: '2rem',
               alignItems: 'center'
             }}>
-              <Link href="/" style={{
-                color: '#f8fafc',
-                textDecoration: 'none',
-                fontSize: '0.95rem',
-                fontWeight: '500',
-                transition: 'all 0.3s ease',
-                fontFamily: 'var(--font-dm-sans)'
-              }} onMouseEnter={(e) => {
-                e.currentTarget.style.color = '#3b7dff'
-              }} onMouseLeave={(e) => {
-                e.currentTarget.style.color = '#f8fafc'
-              }}>
+              <Link href="/" className="nav-link">
                 Trang chủ
               </Link>
               
-              <Link href="/about" style={{
-                color: '#f8fafc',
-                textDecoration: 'none',
-                fontSize: '0.95rem',
-                fontWeight: '500',
-                transition: 'all 0.3s ease',
-                fontFamily: 'var(--font-dm-sans)'
-              }} onMouseEnter={(e) => {
-                e.currentTarget.style.color = '#3b7dff'
-              }} onMouseLeave={(e) => {
-                e.currentTarget.style.color = '#f8fafc'
-              }}>
+              <Link href="/about" className="nav-link">
                 Giới thiệu
               </Link>
               
-              <Link href="/products" style={{
-                color: '#f8fafc',
-                textDecoration: 'none',
-                fontSize: '0.95rem',
-                fontWeight: '500',
-                transition: 'all 0.3s ease',
-                fontFamily: 'var(--font-dm-sans)'
-              }} onMouseEnter={(e) => {
-                e.currentTarget.style.color = '#3b7dff'
-              }} onMouseLeave={(e) => {
-                e.currentTarget.style.color = '#f8fafc'
-              }}>
+              <Link href="/products" className="nav-link">
                 Sản phẩm
               </Link>
               
-              <Link href="/blog" style={{
-                color: '#f8fafc',
-                textDecoration: 'none',
-                fontSize: '0.95rem',
-                fontWeight: '500',
-                transition: 'all 0.3s ease',
-                fontFamily: 'var(--font-dm-sans)'
-              }} onMouseEnter={(e) => {
-                e.currentTarget.style.color = '#3b7dff'
-              }} onMouseLeave={(e) => {
-                e.currentTarget.style.color = '#f8fafc'
-              }}>
+              <Link href="/blog" className="nav-link">
                 Tin tức
               </Link>
               
-              <Link href="/contact" style={{
-                background: 'linear-gradient(135deg, #3b7dff 0%, #00d4ff 100%)',
-                color: 'white',
-                padding: '0.6rem 1.5rem',
-                borderRadius: '8px',
-                textDecoration: 'none',
-                fontSize: '0.95rem',
-                fontWeight: '600',
-                transition: 'all 0.3s ease',
-                boxShadow: '0 4px 15px rgba(59, 125, 255, 0.3)',
-                fontFamily: 'var(--font-dm-sans)'
-              }} onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-2px)'
-                e.currentTarget.style.boxShadow = '0 6px 20px rgba(59, 125, 255, 0.4)'
-              }} onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)'
-                e.currentTarget.style.boxShadow = '0 4px 15px rgba(59, 125, 255, 0.3)'
-              }}>
+              <Link href="/contact" className="nav-button">
                 Liên hệ
               </Link>
             </div>
@@ -202,7 +141,7 @@ export default function RootLayout({
                   marginBottom: '1rem'
                 }}>
                   <Image 
-                    src="/logo-icon.png" 
+                    src="/logo-icon-64x64.png" 
                     alt="FVA Logo" 
                     width={32} 
                     height={32}
@@ -241,11 +180,11 @@ export default function RootLayout({
                   Liên Kết
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                  <Link href="/" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.3s', fontFamily: 'var(--font-dm-sans)' }} onMouseEnter={(e) => e.currentTarget.style.color = '#3b7dff'} onMouseLeave={(e) => e.currentTarget.style.color = '#94a3b8'}>Trang Chủ</Link>
-                  <Link href="/about" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.3s', fontFamily: 'var(--font-dm-sans)' }} onMouseEnter={(e) => e.currentTarget.style.color = '#3b7dff'} onMouseLeave={(e) => e.currentTarget.style.color = '#94a3b8'}>Giới Thiệu</Link>
-                  <Link href="/products" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.3s', fontFamily: 'var(--font-dm-sans)' }} onMouseEnter={(e) => e.currentTarget.style.color = '#3b7dff'} onMouseLeave={(e) => e.currentTarget.style.color = '#94a3b8'}>Sản Phẩm</Link>
-                  <Link href="/blog" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.3s', fontFamily: 'var(--font-dm-sans)' }} onMouseEnter={(e) => e.currentTarget.style.color = '#3b7dff'} onMouseLeave={(e) => e.currentTarget.style.color = '#94a3b8'}>Tin Tức</Link>
-                  <Link href="/contact" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.3s', fontFamily: 'var(--font-dm-sans)' }} onMouseEnter={(e) => e.currentTarget.style.color = '#3b7dff'} onMouseLeave={(e) => e.currentTarget.style.color = '#94a3b8'}>Liên Hệ</Link>
+                  <Link href="/" className="footer-link">Trang Chủ</Link>
+                  <Link href="/about" className="footer-link">Giới Thiệu</Link>
+                  <Link href="/products" className="footer-link">Sản Phẩm</Link>
+                  <Link href="/blog" className="footer-link">Tin Tức</Link>
+                  <Link href="/contact" className="footer-link">Liên Hệ</Link>
                 </div>
               </div>
 
@@ -261,11 +200,11 @@ export default function RootLayout({
                   Dịch Vụ
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                  <a href="/products#recruitment" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.3s', fontFamily: 'var(--font-dm-sans)' }} onMouseEnter={(e) => e.currentTarget.style.color = '#3b7dff'} onMouseLeave={(e) => e.currentTarget.style.color = '#94a3b8'}>AI Tuyển Dụng</a>
-                  <a href="/products#seo" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.3s', fontFamily: 'var(--font-dm-sans)' }} onMouseEnter={(e) => e.currentTarget.style.color = '#3b7dff'} onMouseLeave={(e) => e.currentTarget.style.color = '#94a3b8'}>Hệ Thống AI SEO</a>
-                  <a href="/products#sale" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.3s', fontFamily: 'var(--font-dm-sans)' }} onMouseEnter={(e) => e.currentTarget.style.color = '#3b7dff'} onMouseLeave={(e) => e.currentTarget.style.color = '#94a3b8'}>AI Automation Sale</a>
-                  <a href="/products#assistant" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.3s', fontFamily: 'var(--font-dm-sans)' }} onMouseEnter={(e) => e.currentTarget.style.color = '#3b7dff'} onMouseLeave={(e) => e.currentTarget.style.color = '#94a3b8'}>Trợ Lý AI</a>
-                  <a href="/products#custom" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.3s', fontFamily: 'var(--font-dm-sans)' }} onMouseEnter={(e) => e.currentTarget.style.color = '#3b7dff'} onMouseLeave={(e) => e.currentTarget.style.color = '#94a3b8'}>Custom AI</a>
+                  <a href="/products#recruitment" className="footer-link">AI Tuyển Dụng</a>
+                  <a href="/products#seo" className="footer-link">Hệ Thống AI SEO</a>
+                  <a href="/products#sale" className="footer-link">AI Automation Sale</a>
+                  <a href="/products#assistant" className="footer-link">Trợ Lý AI</a>
+                  <a href="/products#custom" className="footer-link">Custom AI</a>
                 </div>
               </div>
 
@@ -284,13 +223,13 @@ export default function RootLayout({
                   <p style={{ color: '#94a3b8', fontSize: '0.9rem', margin: 0, fontFamily: 'var(--font-dm-sans)' }}>
                     📍 Thù Lỗ, Thư Lâm
                   </p>
-                  <a href="mailto:info@fuviai.com" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.3s', fontFamily: 'var(--font-dm-sans)' }} onMouseEnter={(e) => e.currentTarget.style.color = '#3b7dff'} onMouseLeave={(e) => e.currentTarget.style.color = '#94a3b8'}>
+                  <a href="mailto:info@fuviai.com" className="footer-link">
                     📧 info@fuviai.com
                   </a>
-                  <a href="tel:0889952123" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.3s', fontFamily: 'var(--font-dm-sans)' }} onMouseEnter={(e) => e.currentTarget.style.color = '#3b7dff'} onMouseLeave={(e) => e.currentTarget.style.color = '#94a3b8'}>
+                  <a href="tel:0889952123" className="footer-link">
                     📱 0889 952 123
                   </a>
-                  <a href="https://zalo.me/0889952123" target="_blank" rel="noopener noreferrer" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.3s', fontFamily: 'var(--font-dm-sans)' }} onMouseEnter={(e) => e.currentTarget.style.color = '#3b7dff'} onMouseLeave={(e) => e.currentTarget.style.color = '#94a3b8'}>
+                  <a href="https://zalo.me/0889952123" target="_blank" rel="noopener noreferrer" className="footer-link">
                     💬 Chat Zalo
                   </a>
                 </div>
@@ -314,6 +253,53 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
+
+        {/* Internal CSS for hover effects - works in Server Components */}
+        <style jsx global>{`
+          .nav-link {
+            color: #f8fafc;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-family: var(--font-dm-sans);
+          }
+          
+          .nav-link:hover {
+            color: #3b7dff;
+          }
+          
+          .nav-button {
+            background: linear-gradient(135deg, #3b7dff 0%, #00d4ff 100%);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(59, 125, 255, 0.3);
+            font-family: var(--font-dm-sans);
+            display: inline-block;
+          }
+          
+          .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 125, 255, 0.4);
+          }
+          
+          .footer-link {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            font-family: var(--font-dm-sans);
+          }
+          
+          .footer-link:hover {
+            color: #3b7dff;
+          }
+        `}</style>
       </body>
     </html>
   )
