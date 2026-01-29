@@ -43,7 +43,7 @@ export default function RootLayout({
               <Image 
                 src="/logo-icon-64x64.png" 
                 alt="Future Vision AI" 
-                width={72} 
+                width={150} 
                 height={72}
                 style={{ objectFit: 'contain' }}
               />
